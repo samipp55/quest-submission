@@ -32,17 +32,45 @@ pub fun main(): String {
 1. Script is for viewing not Changing anything
 2. You sign transaction with AuthAccount type and way like that you can access the data in your account
 3. Prepare phase is to access the information/data in your account and Execute phase do stuff to change the data on the blockchain
-4.a Add two new things inside your contract:
+4.aAdd two new things inside your contract:
 
-pub var myNumber: Int
-init() {
-  self.myNumber = 0
+pub contract HelloWorld {
+
+    pub var greeting: String
+    pub var myNumber: Int
+
+    pub fun changeGreeting(newGreeting: String) {
+        self.greeting = newGreeting
+    }
+
+    pub fun updateMyNumber(newNumber: Int){
+        self.myNumber = newNumber
+    }
+
+    init() {
+        self.greeting = "Hello, World!"
+        self.myNumber = 0
+    }
+}
+
+
+4.b Add a script that reads myNumber from the contract
+
+import HelloWorld from 0x01
+
+pub fun main(): Int {
+    return HelloWorld.myNumber
+}
+
+4.c Add a transaction that takes in a parameter named myNewNumber and passes it into the updateMyNumber function. Verify that your number changed by running the script again.
+
+import HelloWorld from 0x01
+
+transaction(myNewNumber: Int) {
+
+  prepare(signer: AuthAccount) {}
+
+  execute {
+    HelloWorld.updateMyNumber(newNumber: myNewNumber)
   }
-
-4.b
-pub fun updateMyNumber(): Int {
-  
-A function named updateMyNumber that takes in a new number named newNumber as a parameter that has type Int and updates myNumber to be newNumber
-Add a script that reads myNumber from the contract
-
-Add a transaction that takes in a parameter named myNewNumber and passes it into the updateMyNumber function. Verify that your number changed by running the script again.
+}
