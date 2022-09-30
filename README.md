@@ -8,4 +8,25 @@
 ## Chapter 1 Day 2
 1. 1. Safety and Security, 2. Clarity, 3. Approachability, 4. Developer Experience and 5. Resource Oriented Programming
 2. Those 5 pillars generates safety, clear, managetable, efficient and fast way to code and excecute code in Flow blockchain.
-3. 
+
+## Chapter 2 Day 1
+1. 
+
+## Chapter 2 Day 2
+1. Script is for viewing not Changing anything
+2. You sign transaction with AuthAccount type and way like that you can access the data in your account
+3. Prepare phase is to access the information/data in your account and Execute phase do stuff to change the data on the blockchain
+4.a Add two new things inside your contract:
+
+pub var myNumber: Int
+init() {
+  self.myNumber = 0
+  }
+
+4.b
+pub fun updateMyNumber(): Int {
+  
+A function named updateMyNumber that takes in a new number named newNumber as a parameter that has type Int and updates myNumber to be newNumber
+Add a script that reads myNumber from the contract
+
+Add a transaction that takes in a parameter named myNewNumber and passes it into the updateMyNumber function. Verify that your number changed by running the script again.
