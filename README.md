@@ -10,14 +10,14 @@
 2. Those 5 pillars generates safety, clear, managetable, efficient and fast way to code and excecute code in Flow blockchain.
 
 ## Chapter 2 Day 1
-1. pub contract JacobTucker {
-
-pub let is: String
-
-init() {
-    self.is = "the best"
-}
-}
+#pub contract JacobTucker {
+#
+#pub let is: String
+#
+#init() {
+#    self.is = "the best"
+#}
+#}
 
 2. import JacobTucker from 0x03
 
