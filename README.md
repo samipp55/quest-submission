@@ -11,7 +11,7 @@
 
 ## Chapter 2 Day 1
 
-''' cadence
+``` cadence
 pub contract JacobTucker {
 
 pub let is: String
@@ -20,7 +20,7 @@ init() {
     self.is = "the best"
 }
 }
-'''
+```
 2. import JacobTucker from 0x03
 
 pub fun main(): String {
