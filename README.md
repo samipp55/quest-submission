@@ -98,5 +98,10 @@ Unwrap operation ! Stops use optional types. e.g. if we have defined String? to 
 4. Using this picture below, explain...
 
 What the error message means: types are not right, optional type need to be added 
+
 Why we're getting this error: I'm not sure, because for me it seems that returning value is String "Three". Of course if I try to return address 0x04 with String? program can return null, but this is not the case now... 
+
 How to fix it: Add ? after String in line one --> pub fun main(): String?
+
+## Chapter 2 Day 4
+
