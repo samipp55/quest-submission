@@ -71,3 +71,32 @@ transaction(myNewNumber: Int) {
   }
 }
 ```
+
+## Chapter 2 Day 3
+1. In a script, initialize an array (that has length == 3) of your favourite people, represented as Strings, and log it.
+```cadence
+pub fun main() {
+    let ListOfText: [String] = ["Katja", "Osku", "Yoey"]
+    log (ListOfText)
+}
+```
+
+2. In a script, initialize a dictionary that maps the Strings Facebook, Instagram, Twitter, YouTube, Reddit, and LinkedIn to a UInt64 that represents the order in which you use them from most to least. For example, YouTube --> 1, Reddit --> 2, etc. If you've never used one before, map it to 0!
+
+```cadence
+pub fun main() {
+    let distionaryOfSoMe: {String: UInt64} = {"Instagram": 1, "Youtube": 2, "Facebook": 3, "LinkedIn": 4, "Twitter": 5, "Reddit": 6}
+
+    log (distionaryOfSoMe)
+}
+```
+
+3. Explain what the force unwrap operator ! does, with an example different from the one I showed you (you can just change the type).
+
+Unwrap operation ! Stops use optional types. e.g. if we have defined String? to value can be either String or nil. And after ! only String value is ok and if it is nil comes error.
+
+4. Using this picture below, explain...
+
+What the error message means: types are not right, optional type need to be added 
+Why we're getting this error: I'm not sure, because for me it seems that returning value is String "Three". Of course if I try to return address 0x04 with String? program can return null, but this is not the case now... 
+How to fix it: Add ? after String in line one --> pub fun main(): String?
