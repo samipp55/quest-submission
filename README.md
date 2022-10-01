@@ -35,7 +35,7 @@ pub fun main(): String {
 2. You sign transaction with AuthAccount type and way like that you can access the data in your account
 3. Prepare phase is to access the information/data in your account and Execute phase do stuff to change the data on the blockchain
 4.aAdd two new things inside your contract:
-
+```cadence
     pub contract HelloWorld {
         pub var greeting: String
         pub var myNumber: Int
@@ -50,25 +50,23 @@ pub fun main(): String {
             self.myNumber = 0
         }
     }
-
+```
 
 4.b Add a script that reads myNumber from the contract
-
+```cadence
 import HelloWorld from 0x01
 
 pub fun main(): Int {
     return HelloWorld.myNumber
 }
-
+```
 4.c Add a transaction that takes in a parameter named myNewNumber and passes it into the updateMyNumber function. Verify that your number changed by running the script again.
-
+```cadence
 import HelloWorld from 0x01
-
 transaction(myNewNumber: Int) {
-
   prepare(signer: AuthAccount) {}
-
   execute {
     HelloWorld.updateMyNumber(newNumber: myNewNumber)
   }
 }
+```
