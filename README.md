@@ -22,11 +22,11 @@ init() {
 }
 ```
 2. import JacobTucker from 0x03
-
+```cadence
 pub fun main(): String {
     return JacobTucker.is
     }
-
+```
 <img width="700" alt="Screenshot 2022-09-30 at 17 56 08" src="https://user-images.githubusercontent.com/114108357/193298113-0ccbd9a0-59db-4eb4-a239-62076f10fa7b.png">
 
 
