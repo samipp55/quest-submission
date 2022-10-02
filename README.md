@@ -161,7 +161,7 @@ transaction(address: Address, neckMaterial: String, bodyMaterial: String, finger
     let guitarFeatures = HelloWorld.GuitarFeatures(
             address: address,
             neckMaterial: neckMaterial,
-            bodyMAterial: bodyMaterial,
+            bodyMaterial: bodyMaterial,
             fingerboardMaterial: fingerboardMaterial,
             bridgeType: bridgeType,
             pickupConfiguration: pickupConfiguration,
