@@ -105,3 +105,90 @@ How to fix it: Add ? after String in line one --> pub fun main(): String?
 
 ## Chapter 2 Day 4
 
+1. Deploy a new contract that has a Struct of your choosing inside of it (must be different than Profile).
+2. Create a dictionary or array that contains the Struct you defined.
+3. Create a function to add to that array/dictionary.
+4. Add a transaction to call that function in step 3.
+5. Add a script to read the Struct you defined.
+
+Contract
+```cadence
+pub contract HelloWorld {
+
+    pub var guitarGallery: {Address: GuitarFeatures}
+
+    pub fun addGuitar(guitarFeatures: GuitarFeatures) {
+        let address: Address = guitarFeatures.address
+        self.guitarGallery[address] = guitarFeatures
+        }
+
+    pub struct GuitarFeatures {
+        pub let address: Address
+        pub let neckMaterial: String
+        pub let bodyMaterial: String
+        pub let fingerboardMaterial: String
+        pub let bridgeType: String
+        pub let pickupConfiguration: String
+        pub let serialNumber: Int
+
+    // `init()` gets called when this Struct is created...
+    // You have to pass in 7 arguments when creating this Struct.
+        init(_Address: Address, _NeckMaterial: String, _BodyMaterial: String, _FingerboardMaterial: String, _BridgeType: String, _PickupConfiguration: String, _SerialNumber: Int) {
+            self.address = _Address
+            self.neckMaterial = _NeckMaterial
+            self.bodyMaterial = _BodyMaterial
+            self.fingerboardMaterial = _FingerboardMaterial
+            self.bridgeType = _BridgeType
+            self.pickupConfiguration = _PickupConfiguration
+            self.serialNumber = _SerialNumber
+        }
+    }
+    init() {
+        self.guitarGallery = {}
+    }
+}
+
+```
+Transaction:
+```cadence
+
+import HelloWorld from 0x01
+
+transaction(address: Address, neckMaterial: String, bodyMaterial: String, fingerboardMaterial: String, bridgeType: String, pickupConfiguration: String, serialNumber: Int) {
+  prepare(acct: AuthAccount) {
+  }
+  execute {
+    let guitarFeatures = HelloWorld.GuitarFeatures(
+            address: address,
+            neckMaterial: neckMaterial,
+            bodyMAterial: bodyMaterial,
+            fingerboardMaterial: fingerboardMaterial,
+            bridgeType: bridgeType,
+            pickupConfiguration: pickupConfiguration,
+            serialNumber: serialNumber
+    )
+    
+    HelloWorld.addGuitar(guitarFeatures: guitarFeatures)
+  }
+}
+
+```
+Script (return)
+```cadence
+
+import HelloWorld from 0x01
+
+pub fun main(): {Address: HelloWorld.GuitarFeatures} {
+    return HelloWorld.guitarGallery
+}
+```
+
+Script (log)
+```cadence
+
+import HelloWorld from 0x01
+
+pub fun main() {
+    log(HelloWorld.guitarGallery)
+}
+```
