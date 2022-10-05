@@ -192,3 +192,45 @@ pub fun main() {
     log(HelloWorld.guitarGallery)
 }
 ```
+## Chapter 3 Day 1
+
+1. In words, list 3 reasons why structs are different from resources.
+
+Resource Must be destroyed after the use
+Resource can exists in one location at the a time
+Resource must be used exactly once
+
+2. Describe a situation where a resource might be better to use than a struct.
+
+When you need very secure solution
+nft is good example that can exist in one place at the time
+
+
+3. What is the keyword to make a new resource?
+
+create
+
+4. Can a resource be created in a script or transaction (assuming there isn't a public function to create one)?
+
+transaction. It is action not look
+
+5. What is the type of the resource below?
+
+Boolean (true or falls)
+
+6. I Spy 4 things wrong with this code. Please fix them
+```cadense
+pub contract Test {
+
+    // Hint: There's nothing wrong here ;)
+    pub resource Jacob {
+        pub let rocks: Bool
+        init() {
+            self.rocks = true
+        }
+    }
+
+    pub fun createJacob(): @Jacob { // there is 1 here 
+        let myJacob <- create Jacob() // there are 2 here
+        return <- myJacob // there is 1 here
+```
