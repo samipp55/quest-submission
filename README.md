@@ -234,3 +234,6 @@ pub contract Test {
         let myJacob <- create Jacob() // there are 2 here
         return <- myJacob // there is 1 here
 ```
+
+## Chapter 3 Day 2
+
